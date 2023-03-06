@@ -17,16 +17,7 @@ public class BookController {
     public String displayBookDetails(@PathVariable("id") int ISBN, Model model) {
         Book b = br.findById(ISBN);
 
-        model.addAttribute("title", b.getTitle());
-        model.addAttribute("author", b.getAuthor());
-        model.addAttribute("publisher", b.getPublisher());
-        model.addAttribute("description", b.getDescription());
-        model.addAttribute("picture", b.getPicture());
-        model.addAttribute("language", b.getLanguage());
-        model.addAttribute("genre", b.getGenre());
-        model.addAttribute("age", b.getAge());
-        model.addAttribute("inventory", b.getInventory());
-        model.addAttribute("price", b.getPrice());
+        model.addAttribute("book", b);
 
         return "bookdetails";
     }
