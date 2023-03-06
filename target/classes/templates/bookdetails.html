@@ -23,7 +23,54 @@
 
 <main>
     <section>
-        <h1></h1>
+        <div class="left-side">
+            <div class="image">
+                <img th:src="@{${'/resources/templates/assets/img/' + book.picture + '.png'}}"/>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <h1 th:text="${book.title}"> </h1>
+
+            <div class="author">
+                <p>By: <span th:text="${book.author}"></span></p>
+            </div>
+            <div class="price">
+                <p>Price: <span th:text="${book.price}"></span></p>
+            </div>
+            <div class="addtocart">
+                <form action="#" th:action="@{/addressbook}" method="get">
+                    <p>
+                        <input type="submit" value="Add To Cart"/>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="bottom">
+
+            <div class="descriptiion">
+                <h2>Description</h2>
+                <p th:text="${book.description}"></p>
+            </div>
+            <div class="details">
+                <details>
+                    <summary><strong>Additional Information</strong></summary>
+
+                    <p>ISBN: <span th:text="${book.ISBN}"></span></p>
+                    <p>Author: <span th:text="${book.author}"></span></p>
+                    <p>Publisher: <span th:text="${book.publisher}"></span></p>
+                    <p>Language <span th:text="${book.language}"></span></p>
+                    <p>Genre: <span th:text="${book.genre}"></span></p>
+                    <p>Age: <span th:text="${book.age}"></span></p>
+
+                </details>
+            </div>
+            <div class="description">
+
+            </div>
+        </div>
+
     </section>
 </main>
 </body>
