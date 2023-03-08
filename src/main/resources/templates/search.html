@@ -18,27 +18,23 @@
 
 <div class="container" style="width: 95%">
 
+
+
         <table style="border: 1px solid black; width: 95%">
             <thead>
             <tr>
 
                 <th style="border-right:1px;text-align:left">Id</th>
-                <th style ="border-right:1px;text-align:left">Name</th>
-                <th style="border-right:1px;text-align:left;">Description</th>
+                <th style ="border-right:1px;text-align:left">title</th>
+                <th style ="border-right:1px;text-align:left">Price</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                    1
-                </td>
-                <td>
-                    harry potter
-                </td>
-                <td>
-                    kjdfkjds
-                </td>
-            </tr>
+            <tr th:each = "book:${displayedbooks}" >
+            <td th:text = "${book.getId()}" >${book.getId()}</td>
+                <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
+                <td th:text = "${book.getCost()}" >${book.getCost()}</td>
+
 
 
             </tbody>
