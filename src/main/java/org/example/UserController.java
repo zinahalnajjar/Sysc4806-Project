@@ -71,7 +71,7 @@ public class UserController {
 
     @PostMapping("/userLogin")
     public String loginUser(@ModelAttribute("loginuser") User user, @RequestParam(value = "email") String email, @RequestParam(value = "password") String password, Model model) {
-        //long userId = user.getId();
+        long userId = user.getId();
         User userdata = this.userRepository.findByEmail(email);
         if (password.equals(userdata.getPassword())) {
             //model.addAttribute("displayedbooks", bookRepository.findAll());

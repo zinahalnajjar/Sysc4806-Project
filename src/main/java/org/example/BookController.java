@@ -1,8 +1,5 @@
 package org.example;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +22,31 @@ public class BookController {
         return "details";
     }
 
-    @PostMapping("/bookdetails/{id}")
-    public String adToCart(@PathVariable("id") long id, Model model) {
-        //model.addAttribute("AddressBook", new AddressBook());
+    @PostMapping("/cart")
+    public String addToCart() {
         return "cart";
     }
+
+    @GetMapping("/cart")
+    public String displayCart() {
+        return "cart";
+    }
+
+    @GetMapping("/search")
+    public String displaySearch(Model model) {
+        model.addAttribute("displayedbooks", br.findAll());
+        return "search";
+    }
+
+
+    @GetMapping("/account")
+    public String displayAccount() {
+        return "account";
+    }
+
+    @GetMapping("/recommendation")
+    public String displayRecommendation() {
+        return "recommendation";
+    }
+
 }

@@ -26,11 +26,11 @@ public class AmazonBookStore {
 
             Book book1 = new Book(2L, "The Way I Used to Be", 1481449362, "Amber Smith", "Margaret K. McElderry Books",
                     "Eden was always good at being good. Starting high school didn’t change who she was. But the night her brother’s best friend hurt her, Eden’s world capsizes.\n" +
-                            "\n" + "What was once simple, is now complex.",  "thewayIusedtobe", 10, 15.58, "English", "Fiction", "15+");
+                            "\n" + "What was once simple, is now complex.",  "temp1", 10, 15.58, "English", "Fiction", "15+");
 
             Book book2 = new Book(3L, "The Way I Used to Be", 1481449362, "Amber Smith", "Margaret K. McElderry Books",
                     "Eden was always good at being good. Starting high school didn’t change who she was. But the night her brother’s best friend hurt her, Eden’s world capsizes.\n" +
-                            "\n" + "What was once simple, is now complex.",  "thewayIusedtobe", 10, 15.58, "English", "Fiction", "15+");
+                            "\n" + "What was once simple, is now complex.",  "temp2", 10, 15.58, "English", "Fiction", "15+");
 
             Book book3 = new Book(4L, "The Way I Used to Be", 1481449362, "Amber Smith", "Margaret K. McElderry Books",
                     "Eden was always good at being good. Starting high school didn’t change who she was. But the night her brother’s best friend rapes her, Eden’s world capsizes.\n" +

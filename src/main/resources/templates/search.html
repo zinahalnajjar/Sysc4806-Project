@@ -1,12 +1,29 @@
 <!doctype html>
 <html>
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/searchstyle.css}">
+
     <title>Welcome to Amazon Bookstore </title>
 </head>
 <body>
+
+<header class= "main_header">
+    <h1>Amazon Book Store</h1>
+</header>
+
+<nav>
+    <div id= "nav-bar-top">
+        <a th:href= "@{/recommendation}">Home</a>
+        <a th:href= "@{/search}">Search</a>
+        <a th:href= "@{/cart}">Cart</a>
+        <a class="account" th:href= "@{/account}">Account</a>
+    </div>
+</nav>
+
 <div class="container">
     <form action = "" class="search-bar">
         <input type="text" placeholder="search a book" name="q">
@@ -21,12 +38,10 @@
     <!--
         <form class ="col-5" th:action="@{/sortall}" th:object="${variableB}" method="post">
             <input type="text" class="form-control" th:field="*{sortbooks}">
-
         <select :field="*{sortbooks}">
         <option value = "1">Price high to low</option>
         <option value = "2">sort by title</option>
         </select>
-
             <button type= "submit" class="btn btn-success">Submit</button>
         </form>
         -->
@@ -42,11 +57,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "book:${displayedbooks}" >
+        <tr th:each = "book:${displayedbooks}">
             <td th:text = "${book.getId()}" >${book.getId()}</td>
             <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
-            <td th:text = "${book.getCost()}" >${book.getCost()}</td>
+            <td th:text = "${book.getPrice()}" >${book.getPrice()}</td>
             <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
+            <td>
+                <a th:href="@{/bookdetails/{id}(id = ${book.id})}"> Details
+                </a>
+            </td>
 
 
 

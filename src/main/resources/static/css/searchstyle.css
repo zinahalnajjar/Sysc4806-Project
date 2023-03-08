@@ -2,19 +2,19 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    background-position: 100px;
-    background: lightgoldenrodyellow;
+    /*background-position: 100px;*/
+    /*background: lightgoldenrodyellow;*/
     font-family: 'Poppins', sans-serif;
 }
 
 .container{
-    width: 100%;
+    /*width: 100%;/*
     /*min-height: 100vh;*/
-    height: 100%;
+    /*height: 100%;*/
     padding: 5%;
     background-position: center;
     background-size: 100px;
-    background: lightgoldenrodyellow;
+    /*background: lightgoldenrodyellow;*/
     display: flex;
     align-items: center;
     justify-content: center;
