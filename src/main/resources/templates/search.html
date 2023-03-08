@@ -57,13 +57,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "book:${displayedbooks}">
+        <tr th:each = "book:${displayedbooks}" >
             <td th:text = "${book.getId()}" >${book.getId()}</td>
             <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
             <td th:text = "${book.getPrice()}" >${book.getPrice()}</td>
             <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
             <td>
-                <a th:href="@{/bookdetails/{id}(id = ${book.id})}"> Details
+                <a th:href="@{/bookdetails/{id}(id = ${book.id})}">
+                    Details
                 </a>
             </td>
 

@@ -44,7 +44,7 @@
                 <div class="buy-section">
                     <p>Price: $<span th:text="${book.price}"></span></p>
                     <div class="addtocart">
-                        <form action = "">
+                        <form th:action="@{/cart}" method="post">
                             <p>
                                 <input class="button" type="submit" value="Add To Cart"/>
                             </p>
