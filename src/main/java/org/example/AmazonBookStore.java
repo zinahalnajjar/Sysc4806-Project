@@ -21,10 +21,10 @@ public class AmazonBookStore {
 
             User user1 = new User("sam.bauer@gmail.com","1234");
             userRepository.save(user1);
-            Book book1 = new Book(1L,"Harry Potter", "isbn", "J.KRowling", "sara","kjshfkjhdfk", "link to pic", 1, 25);
+            Book book1 = new Book(1L,"Harry Potter", "isbn", "Rany Hookins", "sara","kjshfkjhdfk", "link to pic", 1, 25);
             bookrepository.save(book1);
             Book book2 = new Book(2L,"twilight", "isbn", "J.KRowling", "sara","kjshfkjhdfk", "link to pic", 1, 19);
-            Book book3 = new Book(3L,"games", "isbn", "J.KRowling", "sara","kjshfkjhdfk", "link to pic", 1, 23);
+            Book book3 = new Book(3L,"games", "isbn", "Bob", "sara","kjshfkjhdfk", "link to pic", 1, 23);
             bookrepository.save(book2);
             bookrepository.save(book3);
 

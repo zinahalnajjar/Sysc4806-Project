@@ -20,25 +20,27 @@
 
 
 
-        <table style="border: 1px solid black; width: 95%">
-            <thead>
-            <tr>
+    <table style="border: 1px solid black; width: 95%">
+        <thead>
+        <tr>
 
-                <th style="border-right:1px;text-align:left">Id</th>
-                <th style ="border-right:1px;text-align:left">title</th>
-                <th style ="border-right:1px;text-align:left">Price</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each = "book:${displayedbooks}" >
+            <th style="border-right:1px;text-align:left">Id</th>
+            <th style ="border-right:1px;text-align:left">title</th>
+            <th style ="border-right:1px;text-align:left">Price</th>
+            <th style ="border-right:1px;text-align:left">Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "book:${displayedbooks}" >
             <td th:text = "${book.getId()}" >${book.getId()}</td>
-                <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
-                <td th:text = "${book.getCost()}" >${book.getCost()}</td>
+            <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
+            <td th:text = "${book.getCost()}" >${book.getCost()}</td>
+            <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
 
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
 </div>
 
