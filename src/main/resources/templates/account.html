@@ -6,6 +6,7 @@
 
     <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/accountstyle.css}">
 
 </head>
 <body>
@@ -23,6 +24,12 @@
     </div>
 </nav>
 
+<h1>Account Summary</h1>
+
+<p>First Name: <span th:text="${user.firstName}"></span></p>
+<p>Last Name: <span th:text="${user.lastName}"></span></p>
+<p>Email: <span th:text="${user.email}"></span></p>
+<p>Password: <span th:text="${user.password}"></span></p>
 
 </body>
 </html>

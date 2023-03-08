@@ -40,7 +40,10 @@ public class BookController {
 
 
     @GetMapping("/account")
-    public String displayAccount() {
+    public String displayAccount(Model model) {
+        User user = ur.findByEmail("sam.bauer@gmail.com");
+        model.addAttribute("user", user);
+
         return "account";
     }
 

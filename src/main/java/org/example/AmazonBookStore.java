@@ -80,7 +80,7 @@ public class AmazonBookStore {
             log.info("");
 
 
-            User user1 = new User("sam.bauer@gmail.com","1234");
+            User user1 = new User("Sam", "Bauer","sam.bauer@gmail.com","1234");
             userRepository.save(user1);
 
             log.info("users found with findAll():");
