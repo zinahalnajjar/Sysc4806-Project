@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <title>Amazon BookStore</title>
+
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/bookdetailstyle.css}">
+
+
+</head>
+
+<body>
+
+<header class= "main_header">
+    <h1>Amazon Book Store</h1>
+</header>
+
+<nav>
+    <div id= "nav-bar-top">
+        <a th:href= "@{/recommendation}">Home</a>
+        <a href="search.html">Search</a>
+        <a href="cart.html">Cart</a>
+        <a class="account" href="accountsummary.html">Account</a>
+    </div>
+</nav>
+
+<main>
+    <section>
+        <div class="main-info">
+            <div class="left-side">
+                <div class="image">
+                    <img th:src="@{${'/img/' + book.picture + '.jpg'}}">
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="author">
+                    <h1 th:text="${book.title}"> </h1>
+                    <p>By: <span th:text="${book.author}"></span></p>
+                </div>
+
+                <div class="buy-section">
+                    <p>Price: $<span th:text="${book.price}"></span></p>
+                    <div class="addtocart">
+                        <form action = "">
+                            <p>
+                                <input class="button" type="submit" value="Add To Cart"/>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="description">
+                <h2>Description</h2>
+                <p th:text="${book.description}"></p>
+            </div>
+            <div class="details">
+                <details>
+                    <summary><strong>Additional Information</strong></summary>
+
+                    <p>ISBN: <span th:text="${book.ISBN}"></span></p>
+                    <p>Author: <span th:text="${book.author}"></span></p>
+                    <p>Publisher: <span th:text="${book.publisher}"></span></p>
+                    <p>Language <span th:text="${book.language}"></span></p>
+                    <p>Genre: <span th:text="${book.genre}"></span></p>
+                    <p>Age: <span th:text="${book.age}"></span></p>
+
+                </details>
+            </div>
+            <div class="description">
+
+            </div>
+        </div>
+
+    </section>
+</main>
+</body>
+
+</html>

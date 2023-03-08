@@ -2,9 +2,11 @@ package org.example;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface BookRepository extends CrudRepository<Book, Integer> {
+import java.util.Optional;
 
-    Book findById(int id);
+public interface BookRepository extends CrudRepository<Book, Long> {
+
+    Book findById(long id);
     void deleteById(int id);
     Iterable<Book> findAll();
 

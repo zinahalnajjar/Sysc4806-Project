@@ -11,6 +11,8 @@ public class Book {
     private String title;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private int ISBN;
     private String author;
     private String publisher;
@@ -20,9 +22,10 @@ public class Book {
     private String genre;
     private String age;
     private int inventory;
-    private float price;
+    private double price;
 
-    public Book(Long id, String title, int ISBN, String author, String publisher, String description, String picture, int inventory, float cost, String language, String genre, String age) {
+    public Book(Long Id, String title, int ISBN, String author, String publisher, String description, String picture, int inventory, double cost, String language, String genre, String age) {
+        this.id = id;
         this.title = title;
         this.ISBN = ISBN;
         this.author = author;
@@ -38,6 +41,10 @@ public class Book {
 
     public Book() {
 
+    }
+
+    public Book(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -96,7 +103,7 @@ public class Book {
         this.inventory = inventory;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
