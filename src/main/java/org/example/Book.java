@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Book {
     private String title;
-    @Id
+        @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -134,5 +134,17 @@ public class Book {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

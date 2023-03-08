@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/searchstyle.css}">
+    <title>Welcome to Amazon Bookstore </title>
 </head>
 <body>
-<p>Exists 4</p>
+<div class="container">
+    <form action = "" class="search-bar">
+        <input type="text" placeholder="search a book" name="q">
+        <button type="submit"><img th:src="@{/img/search.png}"></button>
+
+    </form>
+
+</div>
+
+<div class="container" style="width: 95%">
+
+    <!--
+        <form class ="col-5" th:action="@{/sortall}" th:object="${variableB}" method="post">
+            <input type="text" class="form-control" th:field="*{sortbooks}">
+        <select :field="*{sortbooks}">
+        <option value = "1">Price high to low</option>
+        <option value = "2">sort by title</option>
+        </select>
+            <button type= "submit" class="btn btn-success">Submit</button>
+        </form>
+        -->
+
+    <table style="border: 1px solid black; width: 95%">
+        <thead>
+        <tr>
+
+            <th style="border-right:1px;text-align:left">Id</th>
+            <th style ="border-right:1px;text-align:left">title</th>
+            <th style ="border-right:1px;text-align:left">Price</th>
+            <th style ="border-right:1px;text-align:left">Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "book:${displayedbooks}" >
+            <td th:text = "${book.getId()}" >${book.getId()}</td>
+            <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
+            <td th:text = "${book.getPrice()}" >${book.getPrice()}</td>
+            <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
+
+
+
+        </tbody>
+    </table>
+
+</div>
+
 </body>
 </html>
