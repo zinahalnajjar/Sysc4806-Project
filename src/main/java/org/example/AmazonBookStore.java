@@ -21,6 +21,7 @@ public class AmazonBookStore {
 
             User user1 = new User("sam.bauer@gmail.com","1234");
             userRepository.save(user1);
+            Book book1 = new Book(1L,"Harry Potter", "isbn", "J.KRowling", "sara","kjshfkjhdfk", "link to pic", 1, 25);
 
 
             log.info("users found with findAll():");

@@ -15,16 +15,16 @@
   <h1>Sign Up form</h1>
   <form class ="col-5" th:action="@{/userSignup}" th:object="${signupUser}" method="post">
     <label><h6>First Name</h6></label>
-    <input type="text" class="form-control" th:field="*{firstName}">
+    <input type="text" class="form-control" required th:field="*{firstName}">
 
     <label><h6>Last Name</h6></label>
-    <input type="text" class="form-control" th:field="*{lastName}">
+    <input type="text" class="form-control" required th:field="*{lastName}">
 
     <label><h6>Email</h6></label>
-    <input type="text" class="form-control" th:field="*{email}">
+    <input type="text" class="form-control" required th:field="*{email}">
 
     <label><h6>Password</h6></label>
-    <input type="password" class="form-control" th:field="*{password}">
+    <input type="password" class="form-control" required th:field="*{password}">
 
     <br/>
     <button type= "submit" class="btn btn-success">Submit</button>

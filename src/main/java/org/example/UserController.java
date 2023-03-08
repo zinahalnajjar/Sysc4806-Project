@@ -19,6 +19,7 @@ public class UserController {
     public String login(Model model){
         User user=new User();
         model.addAttribute("loginuser",user);
+        //model.addAttribute("error",1);
         return "login";
     }
 
@@ -32,13 +33,14 @@ public class UserController {
 
 
     @PostMapping("/userLogin")
-    public String loginUser(@ModelAttribute("loginuser") User user, @RequestParam(value = "email") String email,  @RequestParam(value = "password") String password) {
+    public String loginUser(@ModelAttribute("loginuser") User user, @RequestParam(value = "email") String email,  @RequestParam(value = "password") String password, Model model) {
         //long userId = user.getId();
         User userdata = this.userRepository.findByEmail(email);
         if (password.equals(userdata.getPassword())) {
             return "search";
         }else{
-            return "error";
+            model.addAttribute("error",1);
+            return "login";
         }
 
     }

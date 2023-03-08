@@ -12,10 +12,13 @@
 </head>
 <body>
       <div class="container">
+        <div th:if="${error}">Invalid email or password</div>
+
         <h1>Login</h1>
         <form class ="col-5" th:action="@{/userLogin}" th:object="${loginuser}" method="post">
           <label><h6>Email</h6></label>
           <input type="text" class="form-control" th:field="*{email}">
+
 
           <label><h6>Password</h6></label>
           <input type="password" class="form-control" th:field="*{password}">
