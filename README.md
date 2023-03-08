@@ -36,6 +36,7 @@ ______________________________________________________________________________
  	- Price high to low 
  	- Sort by title - Alphabetical 
  	- Sort by author- Alphabetical
+
 Recommendation/main page 
 -will include one section for recommended books based on Jaccard distance
 
@@ -66,33 +67,38 @@ ________________________________________________________________________________
 Milestone#1: Breakdown 
 Features:
 two Entity:
- - User - Customer and Book Owner-Zinah
- - Books-Tooba
+ - User - Customer and Book Owner - Zinah
+ - Books - Tooba
 
 Two Repository:
- - User-Zinah
- - Books-Tooba
+ - User - Zinah
+ - Books - Tooba
 
 Controllers:
  - BookController - Recomendations and search-Tooba
- - UserController - For creating a new user-Zinah 
+ - UserController - For creating a new user - Zinah 
 
 For this Milestone, the main focus was on the buyer view 
- - Book Details page - Tooba 
- - Naviagtion Bar (Home, Seacrh, Cart, Account) - (Tooba)
- - Account page - (Tooba) 
- - Search bar - html element NOT functional yet (Zinah)
- - Sort - only logic is added-(Zinah) 
- - Table display of results in search page (Zinah)
- - login and signup pages (Zinah)
+
+Tooba:
+ - Book Details page
+ - Naviagtion Bar (Home, Seacrh, Cart, Account)
+ - Account page
+ - Sort and Filter HTML Only 
+
+Zinah:
+ - Search bar - html element NOT functional yet 
+ - Sort - only logic is added
+ - Table display of results in search page
+ - login and signup pages
  
  Documentation:
- Git repository-both 
-  -Kanban
-  -CI/CD
-  -issues 
-  -scrums
- README-Zinah 
+ Git repository - Both 
+  - Kanban
+  - CI/CD
+  - Issues 
+  - Scrums
+ README - Zinah 
   
  
  
