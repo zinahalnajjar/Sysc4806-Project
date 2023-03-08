@@ -40,6 +40,14 @@
     color: black;
 }
 
+.sort{
+    float: right;
+}
+
+.filter{
+    float: left;
+}
+
 ::placeholder{
     color: black;
 }
