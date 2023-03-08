@@ -1,0 +1,62 @@
+Classes:
+
+Two Entity:
+ - User - Customer and Book Owner
+ - Books 
+
+Two Repository:
+ - User
+ - Books
+
+Controllers:
+ - BookController - Recomendations and search
+ - PaymentController - payment
+ - UserController - For creating a new user
+
+
+Sign - up - html page (Zinah)
+Login page - html page (Zinah)
+
+Buyer View:
+
+Search bar - html
+- Filters:
+	- Range of prices
+ 	- By language 
+ 	- By Genre
+ 	- Range of Ages
+
+- Sort by:
+ 	- Price low to high - Tooba
+ 	- Price high to low - Zinah
+ 	- Sort by title - Alphabetical - Tooba
+ 	- Sort by author- Alphabetical - Zinah 
+
+Recommendation - html
+
+One book page - html (Tooba)
+Account Page - html (Tooba)
+
+Order history Page 
+Cart Page - html (message)
+
+Owner View:
+ - Add new Book Page - html page
+ - View List of books - html page
+ 	- Update inventory 
+	- Delete books 
+
+
+Search Page
+ - Naviagtion Bar (Home, Seacrh, Cart, Account) - Zinah
+ - Search bar - element (Tooba)
+ - Filter (Tooba)
+ - Sort - Drop down Menu (Tooba)
+ - Table (Zinah)
+
+
+
+
+
+
+

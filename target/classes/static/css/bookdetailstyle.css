@@ -1,0 +1,98 @@
+.main-info{
+    width:100%;
+    height:500px;
+    position:absolute;
+    background: lightgoldenrodyellow;
+    padding-bottom: 40px;
+}
+
+.left-side {
+    float: left;
+}
+
+.right-side {
+    float: left;
+    padding: 40px 40px 40px 40px;
+}
+
+form {
+    padding: 20px 0px;
+}
+
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.image{
+    padding: 40px 40px;
+}
+
+img{
+    width: 300px;
+    height: 400px;
+}
+
+.author{
+    font-family: 'Lucida Sans';
+}
+
+.author p{
+    padding: 20px;
+    font-size: 25px;
+}
+
+.author h1{
+    padding: 20px;
+    font-size: 30px
+}
+.buy-section{
+    padding: 20px;
+    font-family: 'Lucida Sans';
+
+}
+
+
+
+.buy-section p{
+    font-size: 20px;
+}
+
+
+.bottom{
+    height:200px;
+    position: relative;
+    top: 450px;
+    padding: 40px 40px;
+    background: white;
+    border:floralwhite solid 2px;
+}
+
+.bottom h2{
+    font-family: 'Lucida Sans';
+    font-size: 20px;
+    padding:  10px 0px;
+}
+
+.description{
+    font-family: 'Lucida Sans';
+    font-size: 15px;
+    padding: 10px 10px;
+    line-height: 2 ;
+}
+
+summary{
+    font-family: 'Lucida Sans';
+    font-size: 15px;
+    padding: 10px 0px;
+}
+
+.details p{
+    padding: 5px 5px;
+    font-family: 'Lucida Sans';
+    font-size: 15px;
+}

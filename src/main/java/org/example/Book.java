@@ -9,20 +9,23 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Book {
-
-    @Id
+    private String title;
+        @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title;
-    private String ISBN;
+
+    private int ISBN;
     private String author;
     private String publisher;
     private String description;
     private String picture;
+    private String language;
+    private String genre;
+    private String age;
     private int inventory;
-    private float cost;
+    private double price;
 
-    public Book(Long id, String title, String ISBN, String author, String publisher, String description, String picture, int inventory, float cost) {
+    public Book(Long Id, String title, int ISBN, String author, String publisher, String description, String picture, int inventory, double cost, String language, String genre, String age) {
         this.id = id;
         this.title = title;
         this.ISBN = ISBN;
@@ -31,18 +34,17 @@ public class Book {
         this.description = description;
         this.picture = picture;
         this.inventory = inventory;
-        this.cost = cost;
+        this.price = cost;
+        this.age = age;
+        this.language = language;
+        this.genre = genre;
     }
 
     public Book() {
 
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
+    public Book(long id) {
         this.id = id;
     }
 
@@ -54,11 +56,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getISBN() {
+    public int getISBN() {
         return ISBN;
     }
 
-    public void setISBN(String ISBN) {
+    public void setISBN(int ISBN) {
         this.ISBN = ISBN;
     }
 
@@ -102,11 +104,47 @@ public class Book {
         this.inventory = inventory;
     }
 
-    public float getCost() {
-        return cost;
+    public double getPrice() {
+        return price;
     }
 
-    public void setCost(float cost) {
-        this.cost = cost;
+    public void setPrice(float cost) {
+        this.price = cost;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

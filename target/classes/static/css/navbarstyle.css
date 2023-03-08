@@ -1,0 +1,41 @@
+.main_header{
+    float: top;
+    background-color: navajowhite;
+    padding: 20px 20px;
+    overflow: hidden;
+}
+
+.main_header h1{
+    color: black;
+    font-size: 28px;
+    font-family: 'Lucida Sans';
+}
+
+nav {
+    background-color: black;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 18px;
+    font-family: 'Lucida Sans';
+    text-decoration: none;
+}
+
+.account {
+    float: right;
+}
+
+nav a:hover {
+    background-color: darkgrey;
+    color: black;
+}
+
+nav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
