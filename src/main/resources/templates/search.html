@@ -29,8 +29,44 @@
         <input type="text" placeholder="search a book" name="q">
         <button type="submit"><img th:src="@{/img/search.png}"></button>
 
+    </form><br><br>
+
+
+    <form action = "" class="sort">
+        <p>
+            <label>Sort By</label>
+            <select name="Sort">
+                <option>Price low to high</option>
+                <option>Price high to low</option>
+                <option>Sort by author</option>
+                <option>Sort by title</option>
+            </select>
+        </p>
     </form>
 
+    <div class="filter">
+        <details>
+            <summary><strong>Language</strong></summary>
+                <form action = "">
+                    <input type="checkbox" id="language1" name="language2" value="english">
+                    <label for="language1">English</label><br>
+                    <input type="checkbox" id="language2" name="language2" value="french">
+                    <label for="language2">French</label><br>
+                </form>
+            </summary>
+        </details>
+
+        <details>
+            <summary><strong>age</strong></summary>
+                <form action = "">
+                    <input type="checkbox" id="age1" name="age1" value="pg">
+                    <label for="age1">PG 13</label><br>
+                    <input type="checkbox" id="age2" name="age2" value="Car">
+                    <label for="age2">18+</label><br>
+                </form>
+            </summary>
+        </details>
+    </div>
 </div>
 
 <div class="container" style="width: 95%">
