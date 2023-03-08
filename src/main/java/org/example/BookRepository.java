@@ -10,4 +10,8 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     void deleteById(int id);
     Iterable<Book> findAll();
 
+    Iterable<Book> findByOrderByCostDesc();
+
+    Iterable<Book> findByOrderByAuthorAsc();
+
 }

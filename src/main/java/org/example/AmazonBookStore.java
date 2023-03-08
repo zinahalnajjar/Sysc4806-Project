@@ -17,12 +17,12 @@ public class AmazonBookStore {
     }
 
     @Bean
-    public CommandLineRunner repoInfo(BookRepository bookRepository) {
+    public CommandLineRunner repoInfo(UserRepository userRepository, BookRepository bookRepository) {
         return (args) -> {
 
             Book book = new Book(1L, "The Way I Used to Be", 1481449362, "Amber Smith", "Margaret K. McElderry Books",
                     "Eden was always good at being good. Starting high school didn’t change who she was. But the night her brother’s best friend hurt her, Eden’s world capsizes.\n" +
-                    "\n" + "What was once simple, is now complex.",  "thewayIusedtobe", 10, 15.58, "English", "Fiction", "15+");
+                            "\n" + "What was once simple, is now complex.",  "thewayIusedtobe", 10, 15.58, "English", "Fiction", "15+");
 
             Book book1 = new Book(2L, "The Way I Used to Be", 1481449362, "Amber Smith", "Margaret K. McElderry Books",
                     "Eden was always good at being good. Starting high school didn’t change who she was. But the night her brother’s best friend hurt her, Eden’s world capsizes.\n" +
@@ -78,6 +78,21 @@ public class AmazonBookStore {
                 log.info(book.toString());
             }
             log.info("");
+
+
+            User user1 = new User("sam.bauer@gmail.com","1234");
+            userRepository.save(user1);
+
+            log.info("users found with findAll():");
+            log.info("-------------------------------");
+            for (User users : userRepository.findAll()) {
+                log.info(users.toString());
+            }
+            log.info("");
+
+
         };
+
+
     }
 }

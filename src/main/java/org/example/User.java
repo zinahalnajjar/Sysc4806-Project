@@ -1,22 +1,21 @@
 package org.example;
+
 import jakarta.persistence.*;
 
+
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id = null;
+    public Long userId = null;
+
+
+    public String email;
+    public String password;
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
 
-    private boolean isOwner;
-
-    protected User(){
-
-    }
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -27,12 +26,24 @@ public class User {
     }
 
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+
+    }
+
+    public User() {
+
+    }
+
+
     public String getEmail() {
         return email;
     }
 
+
     public Long getId() {
-        return id;
+        return userId;
     }
 
     public String getFirstName() {
@@ -43,17 +54,15 @@ public class User {
         return lastName;
     }
 
+
+
     public String getPassword() {
         return password;
     }
 
-    public boolean getOwner(){
-        return isOwner;
-    }
 
-    public void setOwner(boolean isOwner){
-        isOwner = true;
-    }
+
+
 
 
 
