@@ -100,7 +100,7 @@ Zinah:
   - CI/CD
   - Issues 
   - Scrums
- README - Zinah 
+  - README - Zinah 
   
  
  
