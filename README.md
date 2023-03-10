@@ -3,10 +3,11 @@ Amazon Book Store web application
 status: search page still in progress, Login/Signup is done, Bookdetails is done
 
 Team members:
-Zinah Al-Najjar
-Tooba Sheikh 
+ - Zinah Al-Najjar
+ - Tooba Sheikh 
+_____________________________________________________________________________
 
-https://github.com/zinahalnajjar/Sysc4806-Project/actions/workflows/maven.yml
+[![Java CI with Maven](https://github.com/zinahalnajjar/Sysc4806-Project/actions/workflows/maven.yml/badge.svg)](https://github.com/zinahalnajjar/Sysc4806-Project/actions/workflows/maven.yml)
 _____________________________________________________________________________
 Background:
  - Book owner: upload and edit book information, and inventory (in-stock)
