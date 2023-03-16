@@ -28,10 +28,7 @@ public class UserController {
         sortOptions.add("Price high to low");
         sortOptions.add("Sort by author");
         // rest of sorting options -->tooba
-
-    }
-
-     */
+    } */
 
     @GetMapping("/start")
     public String login(Model model) {
@@ -82,7 +79,6 @@ public class UserController {
             model.addAttribute("error", 1);
             return "login";
         }
-
     }
 
 
@@ -114,7 +110,4 @@ public class UserController {
         return "search";
 
     }
-
-
-
 }
