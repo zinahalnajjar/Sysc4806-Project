@@ -24,91 +24,115 @@
     </div>
 </nav>
 
-<div class="container">
-    <form action = "" class="search-bar">
-        <input type="text" placeholder="search a book" name="q">
-        <button type="submit"><img th:src="@{/img/search.png}"></button>
+<div class="right-sort">
 
-    </form><br><br>
+</div>
 
+<div class="center">
+    <div class="container">
+        <form action = "" class="search-bar">
+            <input type="text" placeholder="Type Something" name="q">
+            <button type="submit"><img th:src="@{/img/search.png}"></button>
+        </form>
+    </div>
 
-    <form action = "" class="sort">
-        <p>
-            <label>Sort By</label>
-            <select name="Sort">
-                <option>Price low to high</option>
-                <option>Price high to low</option>
-                <option>Sort by author</option>
-                <option>Sort by title</option>
-            </select>
-        </p>
-    </form>
-
-    <div class="filter">
+    <div class="left-filter">
         <details>
             <summary><strong>Language</strong></summary>
-                <form action = "">
-                    <input type="checkbox" id="language1" name="language2" value="english">
-                    <label for="language1">English</label><br>
-                    <input type="checkbox" id="language2" name="language2" value="french">
-                    <label for="language2">French</label><br>
-                </form>
+            <form class="check" action = "">
+                <input type="checkbox" id="language1" name="language2" value="english">
+                <label for="language1">English</label><br>
+                <input type="checkbox" id="language2" name="language2" value="french">
+                <label for="language2">French</label><br>
+            </form>
             </summary>
         </details>
 
         <details>
-            <summary><strong>age</strong></summary>
-                <form action = "">
-                    <input type="checkbox" id="age1" name="age1" value="pg">
-                    <label for="age1">PG 13</label><br>
-                    <input type="checkbox" id="age2" name="age2" value="Car">
-                    <label for="age2">18+</label><br>
-                </form>
+            <summary><strong>Age</strong></summary>
+            <form class="check" action = "">
+                <input type="checkbox" id="age1" name="age1" value="G">
+                <label for="age1">G</label><br>
+                <input type="checkbox" id="age2" name="age2" value="PG">
+                <label for="age2">PG</label><br>
+                <input type="checkbox" id="age3" name="age3" value="PG 13">
+                <label for="age3">PG 13</label><br>
+                <input type="checkbox" id="age4" name="age4" value="M">
+                <label for="age4">M</label><br>
+            </form>
+            </summary>
+        </details>
+
+        <details>
+            <summary><strong>Genre</strong></summary>
+            <form class="check" action = "">
+                <input type="checkbox" id="genre1" name="genre1" value="Fantasy">
+                <label for="genre1">Fantasy</label><br>
+                <input type="checkbox" id="genre2" name="genre2" value="History">
+                <label for="genre2">History</label><br>
+                <input type="checkbox" id="genre3" name="genre3" value="Romance">
+                <label for="genre3">Romance</label><br>
+                <input type="checkbox" id="genre4" name="genre4" value="Fiction">
+                <label for="genre4">Fiction</label><br>
+            </form>
+            </summary>
+        </details>
+
+        <details>
+            <summary><strong>Price</strong></summary>
+            <form class="check" action = "">
+                <input type="checkbox" id="price1" name="price1" value="Under 10">
+                <label for="price1">Under 10</label><br>
+                <input type="checkbox" id="price2" name="price2" value="10 - 50">
+                <label for="price2">10 - 50</label><br>
+                <input type="checkbox" id="price3" name="price3" value="50 - 100">
+                <label for="price3">50 - 100</label><br>
+                <input type="checkbox" id="price4" name="price4" value="Over 100">
+                <label for="price4">Over 100</label><br>
+            </form>
             </summary>
         </details>
     </div>
-</div>
 
-<div class="container" style="width: 95%">
-
-    <!--
-        <form class ="col-5" th:action="@{/sortall}" th:object="${variableB}" method="post">
-            <input type="text" class="form-control" th:field="*{sortbooks}">
-        <select :field="*{sortbooks}">
-        <option value = "1">Price high to low</option>
-        <option value = "2">sort by title</option>
-        </select>
-            <button type= "submit" class="btn btn-success">Submit</button>
+    <div class="sort">
+        <form action = "">
+            <p>
+                <label>Sort By</label>
+                <select name="Sort">
+                    <option>Price low to high</option>
+                    <option>Price high to low</option>
+                    <option>Sort by author</option>
+                    <option>Sort by title</option>
+                </select>
+            </p>
         </form>
-        -->
+    </div>
 
-    <table style="border: 1px solid black; width: 95%">
-        <thead>
-        <tr>
-
-            <th style="border-right:1px;text-align:left">Id</th>
-            <th style ="border-right:1px;text-align:left">title</th>
-            <th style ="border-right:1px;text-align:left">Price</th>
-            <th style ="border-right:1px;text-align:left">Author</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each = "book:${displayedbooks}" >
-            <td th:text = "${book.getId()}" >${book.getId()}</td>
-            <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
-            <td th:text = "${book.getPrice()}" >${book.getPrice()}</td>
-            <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
-            <td>
-                <a th:href="@{/bookdetails/{id}(id = ${book.id})}">
-                    Details
-                </a>
-            </td>
-
-
-
-        </tbody>
-    </table>
-
+    <div class="tab">
+        <table style="width: 95%">
+            <caption>Books</caption>
+            <thead>
+            <tr>
+                <th style="border-right:1px;text-align:left">Id</th>
+                <th style ="border-right:1px;text-align:left">Title</th>
+                <th style ="border-right:1px;text-align:left">Price</th>
+                <th style ="border-right:1px;text-align:left">Author</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "book:${displayedbooks}" >
+                <td th:text = "${book.getId()}" >${book.getId()}</td>
+                <td th:text = "${book.getTitle()}" >${book.getTitle()}</td>
+                <td th:text = "${book.getPrice()}" >${book.getPrice()}</td>
+                <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
+                <td>
+                    <a th:href="@{/bookdetails/{id}(id = ${book.id})}">
+                        Details
+                    </a>
+                </td>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 </body>
