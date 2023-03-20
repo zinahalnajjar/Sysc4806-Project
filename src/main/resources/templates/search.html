@@ -8,6 +8,13 @@
     <link  rel="stylesheet" type="text/css" th:href="@{/css/searchstyle.css}">
 
     <title>Welcome to Amazon Bookstore </title>
+
+    <script>
+        const myForm = document.getElementById("filter");
+        document.querySelector(".submit").addEventListener("click", function(){
+            myForm.submit();
+        });
+    </script>
 </head>
 <body>
 
@@ -37,62 +44,59 @@
     </div>
 
     <div class="left-filter">
-        <details>
-            <summary><strong>Language</strong></summary>
-            <form class="check" action = "">
-                <input type="checkbox" id="language1" name="language2" value="english">
-                <label for="language1">English</label><br>
-                <input type="checkbox" id="language2" name="language2" value="french">
-                <label for="language2">French</label><br>
-            </form>
-            </summary>
-        </details>
+        <form id="filter" method="post" th:action="@{/search/filter}">
+            <details>
+                <summary><strong>Language</strong></summary>
+                    <input type="checkbox" id="language1" th:name="filter_input" value="english">
+                    <label for="language1">English</label><br>
+                    <input type="checkbox" id="language2" th:name="filter_input" value="french">
+                    <label for="language2">French</label><br>
+                </summary>
+            </details>
 
-        <details>
-            <summary><strong>Age</strong></summary>
-            <form class="check" action = "">
-                <input type="checkbox" id="age1" name="age1" value="G">
-                <label for="age1">G</label><br>
-                <input type="checkbox" id="age2" name="age2" value="PG">
-                <label for="age2">PG</label><br>
-                <input type="checkbox" id="age3" name="age3" value="PG 13">
-                <label for="age3">PG 13</label><br>
-                <input type="checkbox" id="age4" name="age4" value="M">
-                <label for="age4">M</label><br>
-            </form>
-            </summary>
-        </details>
+            <details>
+                <summary><strong>Age</strong></summary>
+                    <input type="checkbox" id="age1" th:name="filter_input" value="G">
+                    <label for="age1">G</label><br>
+                    <input type="checkbox" id="age2" th:name="filter_input" value="PG">
+                    <label for="age2">PG</label><br>
+                    <input type="checkbox" id="age3" th:name="filter_input" value="PG_13">
+                    <label for="age3">PG 13</label><br>
+                    <input type="checkbox" id="age4" th:name="filter_input" value="R">
+                    <label for="age4">R</label><br>
+                </summary>
+            </details>
 
-        <details>
-            <summary><strong>Genre</strong></summary>
-            <form class="check" action = "">
-                <input type="checkbox" id="genre1" name="genre1" value="Fantasy">
-                <label for="genre1">Fantasy</label><br>
-                <input type="checkbox" id="genre2" name="genre2" value="History">
-                <label for="genre2">History</label><br>
-                <input type="checkbox" id="genre3" name="genre3" value="Romance">
-                <label for="genre3">Romance</label><br>
-                <input type="checkbox" id="genre4" name="genre4" value="Fiction">
-                <label for="genre4">Fiction</label><br>
-            </form>
-            </summary>
-        </details>
+            <details>
+                <summary><strong>Genre</strong></summary>
+                    <input type="checkbox" id="genre1" th:name="filter_input" value="Fantasy">
+                    <label for="genre1">Fantasy</label><br>
+                    <input type="checkbox" id="genre2" th:name="filter_input" value="History">
+                    <label for="genre2">History</label><br>
+                    <input type="checkbox" id="genre3" th:name="filter_input" value="Romance">
+                    <label for="genre3">Romance</label><br>
+                    <input type="checkbox" id="genre4" th:name="filter_input" value="Fiction">
+                    <label for="genre4">Fiction</label><br>
+                </summary>
+            </details>
 
-        <details>
-            <summary><strong>Price</strong></summary>
-            <form class="check" action = "">
-                <input type="checkbox" id="price1" name="price1" value="Under 10">
-                <label for="price1">Under 10</label><br>
-                <input type="checkbox" id="price2" name="price2" value="10 - 50">
-                <label for="price2">10 - 50</label><br>
-                <input type="checkbox" id="price3" name="price3" value="50 - 100">
-                <label for="price3">50 - 100</label><br>
-                <input type="checkbox" id="price4" name="price4" value="Over 100">
-                <label for="price4">Over 100</label><br>
-            </form>
-            </summary>
-        </details>
+            <details>
+                <summary><strong>Price</strong></summary>
+                    <input type="checkbox" id="price1" th:name="filter_input" value="Under 10">
+                    <label for="price1">Under 10</label><br>
+                    <input type="checkbox" id="price2" th:name="filter_input" value="10 - 50">
+                    <label for="price2">10 - 50</label><br>
+                    <input type="checkbox" id="price3" th:name="filter_input" value="50 - 100">
+                    <label for="price3">50 - 100</label><br>
+                    <input type="checkbox" id="price4" th:name="filter_input" value="Over 100">
+                    <label for="price4">Over 100</label><br>
+                </summary>
+            </details>
+            <button type= "submit">Submit</button>
+        </form>
     </div>
+
+
 
     <div class="sort">
         <form action = "">

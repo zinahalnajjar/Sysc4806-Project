@@ -4,13 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import org.example.enums.Age;
+import org.example.enums.Genre;
+import org.example.enums.Language;
 
 
 @Entity
 public class Book {
     private String title;
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -19,13 +21,13 @@ public class Book {
     private String publisher;
     private String description;
     private String picture;
-    private String language;
-    private String genre;
-    private String age;
+    private Language language;
+    private Genre genre;
+    private Age age;
     private int inventory;
     private double price;
 
-    public Book(Long Id, String title, int ISBN, String author, String publisher, String description, String picture, int inventory, double cost, String language, String genre, String age) {
+    public Book(Long Id, String title, int ISBN, String author, String publisher, String description, String picture, int inventory, double cost, Language language, Genre genre, Age age) {
         this.id = id;
         this.title = title;
         this.ISBN = ISBN;
@@ -112,27 +114,27 @@ public class Book {
         this.price = cost;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
-    public String getGenre() {
+    public Genre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
-    public String getAge() {
+    public Age getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Age age) {
         this.age = age;
     }
 

@@ -21,14 +21,6 @@ public class UserController {
 
     private ArrayList<String> sortOptions;
 
-    /*
-    @ModelAttribute
-    public void loadOptions(Model model) {
-        sortOptions = new ArrayList<>();
-        sortOptions.add("Price high to low");
-        sortOptions.add("Sort by author");
-        // rest of sorting options -->tooba
-    } */
 
     @GetMapping("/start")
     public String login(Model model) {
@@ -46,58 +38,18 @@ public class UserController {
         return "signup";
     }
 
-/*
-    @GetMapping("/all")
-    public String home(Model model) {
-        Sort sort = new Sort();
-        model.addAttribute("sortOptions", sort);
-        return "search";
-    }
-
- */
-
-    /*
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String displaysort(Model model) {
-        model.addAttribute("sortOptions", new Sort());
-        return "search";
-    }
-*/
-
-
-
     @PostMapping("/userLogin")
     public String loginUser(@ModelAttribute("loginuser") User user, @RequestParam(value = "email") String email, @RequestParam(value = "password") String password, Model model) {
         //long userId = user.getId();
         User userdata = this.userRepository.findByEmail(email);
         if (password.equals(userdata.getPassword())) {
-            //model.addAttribute("displayedbooks", bookRepository.findAll());
-            //model.addAttribute("displayedbooks",bookRepository.findByOrderByCostAsc());
-            model.addAttribute("displayedbooks", bookRepository.findByOrderByAuthorAsc());
-            return "search";
+
+            return "recommendation";
         } else {
             model.addAttribute("error", 1);
             return "login";
         }
     }
-
-
-/*
-    @PostMapping("/sortallbooks")
-    public String sortBooks(@ModelAttribute("sortOptions") Sort sort, @RequestParam(value = "options") String options, Model model) {
-        if (options.equals("1")) {
-            model.addAttribute("displayedbooks", bookRepository.findByOrderByCostDesc());
-            return "search";
-
-        } else if (options.equals("2")) {
-            model.addAttribute("displayedbooks", bookRepository.findByOrderByAuthorAsc());
-            return "search";
-
-        }
-        return "search";
-    }
-
-*/
 
 
     @PostMapping("/userSignup")
