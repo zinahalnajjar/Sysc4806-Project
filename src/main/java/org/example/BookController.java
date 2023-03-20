@@ -34,6 +34,8 @@ public class BookController {
 
     @GetMapping("/search")
     public String displaySearch(Model model) {
+        Sort sort = new Sort();
+        model.addAttribute("sortOptions", sort);
         model.addAttribute("displayedbooks", br.findAll());
         return "search";
     }
@@ -51,5 +53,26 @@ public class BookController {
     public String displayRecommendation() {
         return "recommendation";
     }
+
+
+
+
+    @PostMapping("/sortallbooks")
+    public String sortBooks(@ModelAttribute("sortOptions") Sort sort, @RequestParam(value = "options") String options, Model model) {
+        //Sort sorting = new Sort();
+        //model.addAttribute("sortOptions", sorting);
+        if (options.equals("1")) {
+            model.addAttribute("displayedbooks", br.findByOrderByPriceDesc());
+            return "search";
+
+        } else if (options.equals("2")) {
+            model.addAttribute("displayedbooks", br.findByOrderByAuthorAsc());
+            return "search";
+
+        }
+        return "search";
+    }
+
+
 
 }
