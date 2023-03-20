@@ -68,8 +68,15 @@ public class BookController {
         } else if (options.equals("2")) {
             model.addAttribute("displayedbooks", br.findByOrderByAuthorAsc());
             return "search";
+        }else if (options.equals("3")){
+            model.addAttribute("displayedbooks", br.findByOrderByPriceAsc());
+            return "search";
 
+        }else if (options.equals("4")){
+            model.addAttribute("displayedbooks", br.findByOrderByTitleAsc());
+            return "search";
         }
+
         return "search";
     }
 

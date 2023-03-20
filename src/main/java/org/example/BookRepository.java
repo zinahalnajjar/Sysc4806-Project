@@ -11,7 +11,10 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     Iterable<Book> findAll();
 
     Iterable<Book> findByOrderByPriceDesc();
+    Iterable<Book> findByOrderByPriceAsc();
 
     Iterable<Book> findByOrderByAuthorAsc();
+
+    Iterable<Book> findByOrderByTitleAsc();
 
 }
