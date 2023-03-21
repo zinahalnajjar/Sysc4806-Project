@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class BookController {
 
@@ -37,6 +39,7 @@ public class BookController {
         Sort sort = new Sort();
         model.addAttribute("sortOptions", sort);
         model.addAttribute("displayedbooks", br.findAll());
+        model.addAttribute("searchWord", br.findAll());
         return "search";
     }
 
@@ -79,6 +82,19 @@ public class BookController {
 
         return "search";
     }
+
+
+    @PostMapping("/SearchBar")
+    public String searchBar(@ModelAttribute("searchWord") Book book, Model model, @RequestParam(value = "searchInput") String searchInput) {
+
+        Sort sort = new Sort();
+        model.addAttribute("sortOptions", sort);
+        //Book bookinfo = this.br.findByTitle(searchInput);
+        model.addAttribute("displayedbooks",br.findByAuthor(searchInput));
+
+        return "search";
+    }
+
 
 
 
