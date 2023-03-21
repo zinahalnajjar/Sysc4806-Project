@@ -40,7 +40,9 @@ public class BookController {
 
     @GetMapping("/search")
     public String displaySearch(Model model) {
-        model.addAttribute("displayedbooks", br.findAll());
+
+        ArrayList<Book> books = (ArrayList<Book>) br.findAll();
+        model.addAttribute("displayedbooks", books);
         return "search";
     }
 
@@ -48,17 +50,13 @@ public class BookController {
     public String displayFilteredResults(Model model, @RequestParam("checkInp") ArrayList<String> inputs){
 
         ArrayList<Book> books = (ArrayList<Book>) br.findAll();
-        Filter f = new Filter(books);
+        Filter f = new Filter(books, inputs);
 
         if(!inputs.isEmpty()){
-            f.filterBooks(inputs);
+            f.filterBooks();
         }
 
         books = f.getFilteredList();
-
-        if(books.get(0).getId() == -1L){
-            return "search";
-        }
 
         model.addAttribute("displayedbooks", books);
 
