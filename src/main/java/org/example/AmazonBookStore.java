@@ -166,21 +166,21 @@ public class AmazonBookStore {
             Book book29 = new Book(30L, "Tell Me Three Things", 1481449362, "Julie Buxbaum ", "Ember; Reprint edition",
                     "Here are three things about this book: (1) It’s funny and romantic; (2) the mystery at the heart of the story will keep you turning the pages; " +
                             "(3) I have a feeling you’ll be very happy you read it",
-                    "Young_Adult1", 10, 9.27, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
+                    "Young_Adult3", 10, 9.27, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
 
             Book book30 = new Book(31L, "Every Last Word", 1481449362, "Tamara Ireland Stone ", " Little, Brown Books for Young Readers",
                     "Samantha McAllister looks just like the rest of the popular girls in her junior class. But hidden beneath the straightened hair and expertly applied makeup is a " +
                             "secret that her friends would never understand",
-                    "Young_Adult2", 10, 13.19, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
+                    "Young_Adult4", 10, 13.19, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
 
             Book book31 = new Book(32L, "Educated: A Memoir", 1481449362, "Tara Westover", "Random House",
                     "Born to survivalists in the mountains of Idaho, Tara Westover was seventeen the first time she set foot in a classroom. Her family was so isolated from mainstream " +
                             "society that there was no one to ensure the children received an education.",
-                    "Young_Adult3", 10, 32.14, Language.ENGLISH, Genre.YOUNG_ADULT, Age.R);
+                    "Young_Adult1", 10, 32.14, Language.ENGLISH, Genre.YOUNG_ADULT, Age.R);
 
             Book book32 = new Book(33L, "Five Feet Apart", 1481449362, " Rachael Lippincott", "Simon & Schuster Books",
                     "Stella Grant likes to be in control—even though her totally out of control lungs have sent her in and out of the hospital most of her life.",
-                    "Young_Adult4", 10, 20.09, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
+                    "Young_Adult2", 10, 20.09, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
 
             bookRepository.save(book);
             bookRepository.save(book1);
