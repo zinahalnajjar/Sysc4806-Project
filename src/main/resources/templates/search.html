@@ -95,17 +95,19 @@
     </div>
 
     <div class="sort">
-        <form action = "">
+        <form class="sort" th:action="@{/sortallbooks}" th:object="${sortOptions}" method="post">
             <p>
                 <label>Sort By</label>
-                <select name="Sort">
-                    <option>Price low to high</option>
-                    <option>Price high to low</option>
-                    <option>Sort by author</option>
-                    <option>Sort by title</option>
+                <select th:field = "*{options}">
+                    <option value = "3">Price low to high</option>
+                    <option value = "1">Price high to low</option>
+                    <option value = "2" >Sort by author</option>
+                    <option value = "4">Sort by title</option>
                 </select>
+                <button type= "submit" style="background-color:#DA7171FF" class="btn btn-success">Submit</button>
             </p>
         </form>
+
     </div>
 
     <div class="tab">
