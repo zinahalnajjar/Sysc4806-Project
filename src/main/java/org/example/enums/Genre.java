@@ -4,5 +4,8 @@ public enum Genre {
     FANTASY,
     HISTORY,
     ROMANCE,
-    FICTION
+    FICTION,
+    YOUNG_ADULT,
+    HORROR,
+    KIDS
 }
