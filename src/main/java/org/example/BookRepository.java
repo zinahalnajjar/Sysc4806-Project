@@ -2,9 +2,6 @@ package org.example;
 
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
-import java.util.Optional;
-
 public interface BookRepository extends CrudRepository<Book, Long> {
 
     Book findById(long id);
@@ -21,4 +18,6 @@ public interface BookRepository extends CrudRepository<Book, Long> {
     Iterable<Book> findByTitle(String Title);
 
     Iterable<Book> findByAuthor(String author);
+
+    Iterable<Book> findBySearchAllIgnoreCaseContaining(String search);
 }

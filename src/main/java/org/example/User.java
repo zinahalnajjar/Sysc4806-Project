@@ -12,7 +12,6 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     public Long userId;
 
-
     public String email;
     public String password;
     private String firstName;
@@ -25,6 +24,8 @@ public class User {
 
     @ManyToMany
     private List<Book> inCart;
+
+    private String lastSearched;
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -106,6 +107,21 @@ public class User {
 
     public void setCurrent(boolean current) {
         this.current = current;
+    }
+
+    public String getLastSearched(){
+        System.err.println("getting "+ this.lastSearched);
+        System.err.println("getting "+ this);
+        return lastSearched;
+
+
+    }
+
+    public void setLastSearched(String lastSearched){
+        this.lastSearched = lastSearched;
+        System.err.println("setting "+ this.lastSearched);
+        System.err.println("setting "+ this);
+
     }
 
 }

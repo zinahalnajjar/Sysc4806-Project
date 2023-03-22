@@ -1,10 +1,14 @@
 package org.example;
 
+import org.example.enums.Age;
+import org.example.enums.Genre;
+import org.example.enums.Language;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 @Controller
@@ -123,12 +127,13 @@ public class BookController {
     @PostMapping("/SearchBar")
     public String searchBar(@ModelAttribute("searchWord") Book book, Model model, @RequestParam(value = "searchInput") String searchInput) {
 
-        ArrayList<Book> books = (ArrayList<Book>) br.findByAuthor(searchInput);
-
         Sort sort = new Sort();
         model.addAttribute("sortOptions", sort);
-        model.addAttribute("displayedbooks",books);
-
+        //Book bookinfo = this.br.findByTitle(searchInput);
+        //model.addAttribute("displayedbooks",br.findByAuthor(searchInput));
+        this.ur.findByEmail("sam.bauer@gmail.com").setLastSearched(searchInput);// setting it to remember the search
+        System.err.println("///////////"+ this.ur.findByEmail("sam.bauer@gmail.com").getLastSearched());
+        model.addAttribute("displayedbooks",br.findBySearchAllIgnoreCaseContaining(searchInput));
         return "search";
     }
 }

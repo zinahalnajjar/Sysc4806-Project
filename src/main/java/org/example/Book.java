@@ -8,6 +8,8 @@ import org.example.enums.Language;
 
 @Entity
 public class Book {
+    private String search;
+
     private String title;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
