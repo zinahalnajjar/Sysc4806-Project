@@ -102,6 +102,45 @@ Zinah:
   - Scrums
   - README - Zinah 
   
+___________________________________________________________________________________________
+Milestone#2: Breakdown 
+Features:
+two Entity:
+ - User - Customer and Book Owner - Zinah
+ - Books - Tooba
+
+Two Repository:
+ - User - Zinah
+ - Books - Tooba
+
+Controllers:
+ - BookController - Recomendations and search-Tooba
+ - UserController - For creating a new user - Zinah 
+
+For this Milestone, the main focus was on the buyer view 
+
+Tooba:
+ - Filter Feature
+ - added CSS to search page 
+ - recommendation logic
+ - Created UML 
+ - Created Junit and integration tests 
+
+Zinah:
+ - Search feature 
+ - Sort feature
+ - recommendation html
+ - created Schema
+ - Created Junit and integration tests 
+ 
+ Documentation:
+ Git repository - Both 
+  - Kanban
+  - CI/CD
+  - Issues 
+  - Scrums
+  - README - Zinah
+  
  
  
 
