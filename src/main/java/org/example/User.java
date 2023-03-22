@@ -2,13 +2,15 @@ package org.example;
 
 import jakarta.persistence.*;
 
+import java.util.*;
+
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    public Long userId = null;
+    public Long userId;
 
 
     public String email;
@@ -16,6 +18,13 @@ public class User {
     private String firstName;
     private String lastName;
 
+    private boolean current = false;
+
+    @ManyToMany
+    private List<Book> purchased;
+
+    @ManyToMany
+    private List<Book> inCart;
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -23,17 +32,22 @@ public class User {
         this.email = email;
         this.password = password;
 
+        purchased = new ArrayList<>();
+        inCart = new ArrayList<>();
     }
 
 
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+        purchased = new ArrayList<Book>();
+        inCart = new ArrayList<Book>();
 
     }
 
     public User() {
-
+        purchased = new ArrayList<Book>();
+        inCart = new ArrayList<Book>();
     }
 
 
@@ -61,11 +75,38 @@ public class User {
     }
 
 
+    public List<Book> getPurchased() {
+        return purchased;
+    }
+
+    public void addPurchased(Book book) {
+        this.purchased.add(book);
+    }
+
+    public void removePurchased(Book book) {
+        this.purchased.remove(book);
+    }
 
 
+    public List<Book> getInCart() {
+        return inCart;
+    }
 
+    public void removeInCart(Book book) {
+        this.inCart.remove(book);
+    }
 
+    public void addInCart(Book book) {
+        this.inCart.remove(book);
+    }
 
+    public boolean isCurrent() {
+        return current;
+    }
+
+    public void setCurrent(boolean current) {
+        this.current = current;
+    }
 
 }
 

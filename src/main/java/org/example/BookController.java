@@ -1,8 +1,5 @@
 package org.example;
 
-import org.example.enums.Age;
-import org.example.enums.Genre;
-import org.example.enums.Language;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,16 +70,25 @@ public class BookController {
 
     @GetMapping("/account")
     public String displayAccount(Model model) {
-        User user = ur.findByEmail("sam.bauer@gmail.com");
-        model.addAttribute("user", user);
-
+        ArrayList<User> users = (ArrayList<User>) ur.findAll();
+        Recommendation r = new Recommendation(users);
+        model.addAttribute("user", r.getCurrentUser());
         return "account";
     }
 
     @GetMapping("/recommendation")
-    public String displayRecommendation() {
+    public String displayRecommendation(Model model) {
+        ArrayList<User> users = (ArrayList<User>) ur.findAll();
+        Recommendation r = new Recommendation(users);
+
+        r.findRecommendations();
+
+        ArrayList<Book> books = r.getRecommendations();
+        model.addAttribute("displayedbooks", books);
+
         return "recommendation";
     }
+
 
     @PostMapping("/search/sortallbooks")
     public String sortBooks(@ModelAttribute("sortOptions") Sort sort, @RequestParam(value = "options") String options, Model model) {
@@ -125,8 +131,4 @@ public class BookController {
 
         return "search";
     }
-
-
-
-
 }
