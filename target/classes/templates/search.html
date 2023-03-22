@@ -34,7 +34,7 @@
 <div class="center">
     <div class="container">
         <form class = "search-bar" th:action= "@{/SearchBar}" th:object="${searchWord}" method="post" >
-            <input type="text" class="form-control" placeholder="Type Something" th:name="searchInput">
+            <input type="text" class="form-control" placeholder="Type Something" required th:name="searchInput">
             <button type="submit"><img th:src="@{/img/search.png}"></button>
         </form>
 
