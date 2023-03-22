@@ -8,6 +8,8 @@ import org.example.enums.Language;
 
 @Entity
 public class Book {
+
+    private String search;
     private String title;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,6 +39,7 @@ public class Book {
         this.age = age;
         this.language = language;
         this.genre = genre;
+        search = null;
     }
 
     public Book() {
@@ -53,6 +56,7 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+        search = null;
     }
 
     public int getISBN() {
@@ -69,6 +73,7 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+        search = null;
     }
 
     public String getPublisher() {

@@ -119,7 +119,6 @@ public class BookController {
         return "search";
     }
 
-
     @PostMapping("/SearchBar")
     public String searchBar(@ModelAttribute("searchWord") Book book, Model model, @RequestParam(value = "searchInput") String searchInput) {
 
@@ -127,7 +126,7 @@ public class BookController {
 
         Sort sort = new Sort();
         model.addAttribute("sortOptions", sort);
-        model.addAttribute("displayedbooks",books);
+        model.addAttribute("displayedbooks", books);
 
         return "search";
     }
