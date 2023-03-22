@@ -16,12 +16,15 @@ public class User {
     private String firstName;
     private String lastName;
 
+    private String lastSearched;
+
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        System.err.println("&&&&&&&&&&1");
 
     }
 
@@ -29,10 +32,12 @@ public class User {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+        System.err.println("&&&&&&&&&&2");
 
     }
 
     public User() {
+        System.err.println("&&&&&&&&&&3");
 
     }
 
@@ -52,6 +57,21 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getLastSearched(){
+        System.err.println("getting "+ this.lastSearched);
+        System.err.println("getting "+ this);
+        return lastSearched;
+
+
+    }
+
+    public void setLastSearched(String lastSearched){
+        this.lastSearched = lastSearched;
+        System.err.println("setting "+ this.lastSearched);
+        System.err.println("setting "+ this);
+
     }
 
 
