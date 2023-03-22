@@ -21,14 +21,6 @@ public class UserController {
 
     private ArrayList<String> sortOptions;
 
-    /*
-    @ModelAttribute
-    public void loadOptions(Model model) {
-        sortOptions = new ArrayList<>();
-        sortOptions.add("Price high to low");
-        sortOptions.add("Sort by author");
-        // rest of sorting options -->tooba
-    } */
 
     @GetMapping("/start")
     public String login(Model model) {
@@ -46,27 +38,18 @@ public class UserController {
         return "signup";
     }
 
-
-
-
-
     @PostMapping("/userLogin")
     public String loginUser(@ModelAttribute("loginuser") User user, @RequestParam(value = "email") String email, @RequestParam(value = "password") String password, Model model) {
         //long userId = user.getId();
         User userdata = this.userRepository.findByEmail(email);
         if (password.equals(userdata.getPassword())) {
-            model.addAttribute("displayedbooks", bookRepository.findAll());
-            //model.addAttribute("displayedbooks",bookRepository.findByOrderByCostAsc());
-           // model.addAttribute("displayedbooks", bookRepository.findByOrderByAuthorAsc());
+
             return "recommendation";
         } else {
             model.addAttribute("error", 1);
             return "login";
         }
     }
-
-
-
 
 
     @PostMapping("/userSignup")

@@ -19,32 +19,16 @@ public class Sort {
 
     }
 
-
-
     public Sort() {
 
     }
-
 
     public String getOptions() {
         return options;
     }
 
-
     public Long getId() {
         return Id;
     }
 
-
-
-
-
-
-
-
-
-
-
-
 }
-
