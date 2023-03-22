@@ -227,7 +227,9 @@ public class AmazonBookStore {
 
 
             User user1 = new User("Sam", "Bauer","sam.bauer@gmail.com","1234");
+            User user2 = new User("laura", "smith","laura.smith@gmail.com","5678");
             userRepository.save(user1);
+            userRepository.save(user2);
             System.err.println("**********************");
 
 
