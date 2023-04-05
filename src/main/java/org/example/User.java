@@ -12,6 +12,8 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     public Long userId;
 
+    private int cartTotal = 0;
+
     public String email;
     public String password;
     private String firstName;
@@ -116,6 +118,19 @@ public class User {
 
     public void setRole(boolean owner) {
         this.owner = owner;
+    }
+
+    public void setCartTotal(int cartTotal) {
+        this.cartTotal = cartTotal;
+    }
+
+    public int getCartTotal() {
+
+        for(Book b : inCart){
+            cartTotal += b.getPrice();
+        }
+
+        return cartTotal;
     }
 
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
-    <link  rel="stylesheet" type="text/css" th:href="@{/css/cartstyle.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/inventorystyle.css}">
     <title>Title</title>
 </head>
 <body>
@@ -15,47 +15,43 @@
 
 <nav>
     <div id= "nav-bar-top">
-        <a th:href= "@{/recommendation}">Home</a>
-        <a th:href= "@{/search}">Search</a>
-        <a th:href= "@{/cart}">Cart</a>
+        <a th:href= "@{/inventory}">Inventory</a>
+        <a th:href= "@{/addbook}">Add Book</a>
         <a class="account" th:href= "@{/account}">Account</a>
     </div>
 </nav>
 
-<h1 class="heady">Cart</h1>
+<h1 class="heady">Inventory</h1>
 
 <div th:if="${displayedbooks.size() != 0}">
     <div class="tab">
         <table style="width: 95%">
             <thead>
             <tr>
+                <th style="border-right:1px;text-align:left">Id</th>
                 <th style ="border-right:1px;text-align:left">Title</th>
                 <th style ="border-right:1px;text-align:left">Price</th>
+                <th style ="border-right:1px;text-align:left">Author</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each = "book:${displayedbooks}" >
+                <td th:text = "${book.getId()}">${book.getId()}</td>
                 <td th:text = "${book.getTitle()}">${book.getTitle()}</td>
                 <td th:text = "${book.getPrice()}">${book.getPrice()}</td>
+                <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
                 <td>
-                    <a th:href="@{/cart/remove/{id}(id = ${book.id})}">
-                        Remove
+                    <a th:href="@{/bookdetails/{id}(id = ${book.id})}">
+                        Details
                     </a>
                 </td>
             </tbody>
         </table>
     </div>
-    <div class="subBut">
-        <form th:action="@{/checkout}" method="get">
-            <p>
-                <input class="button" type="submit" value="Proceed to Checkout"/>
-            </p>
-        </form>
-    </div>
 </div>
 
 <div class="tab" th:if="${displayedbooks.size() == 0}">
-    <h2>Nothing In Cart Yet</h2>
+    <h2>Nothing In Store</h2>
 </div>
 
 </body>
