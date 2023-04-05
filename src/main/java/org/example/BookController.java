@@ -139,6 +139,7 @@ public class BookController {
         ArrayList<Book> books = r.getRecommendations();
         model.addAttribute("displayedbooks", books);
 
+
         return "recommendation";
     }
 
