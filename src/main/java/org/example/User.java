@@ -88,6 +88,7 @@ public class User {
     }
 
     public void removePurchased(Book book) {
+
         this.purchased.remove(book);
     }
 
@@ -97,7 +98,13 @@ public class User {
     }
 
     public void removeInCart(Book book) {
+
         this.inCart.remove(book);
+    }
+    public List<Book>  resetCart(){
+
+        return inCart = new ArrayList<>();
+
     }
 
     public void addInCart(Book book) {

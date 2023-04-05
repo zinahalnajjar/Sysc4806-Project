@@ -55,9 +55,28 @@ public class BookController {
     }
 
     @GetMapping("/checkout")
-    public String checkOut() {
+    public String displayCheckout(Model model) {
+        Recommendation r = getRec();
+        User c = r.getCurrentUser();
+        List<Book> cart = c.getInCart();
+
+        model.addAttribute("displayedbooks", cart);
         return "checkout";
     }
+
+
+
+    @PostMapping ("/checkout")
+    public String checkOut( Model model ) {
+        Recommendation r = getRec();
+        User c = r.getCurrentUser();
+        //List<Book> cart = c.getInCart();
+        c.resetCart();
+        ur.save(c);
+
+        return "checkout";
+    }
+
 
     @GetMapping("/cart")
     public String displayCart(Model model) {
