@@ -157,7 +157,7 @@ public class AmazonBookStore {
                             "Bod has learned the antiquated customs of his guardians' time",
                     "Horror3", 10, 18.60, Language.ENGLISH, Genre.HORROR, Age.R);
 
-            Book book28 = new Book(29L, "Chthonic Matter Quarterly", 1481449362, " C.M. Muller", "Independently published",
+            Book book28 = new Book(29L, "Chthonic Matter Quarterly", 1481449362, "C.M. Muller", "Independently published",
                     "Chthonic Matter is a quarterly offering of tales from the darkside. Its contents range in tone from the quiet horror of Shirley Jackson to the bleak stylings of Thomas Ligotti —" +
                             " and everything in between.",
                     "Horror4", 10, 17.82, Language.ENGLISH, Genre.HORROR, Age.R);
@@ -178,7 +178,7 @@ public class AmazonBookStore {
                             "society that there was no one to ensure the children received an education.",
                     "Young_Adult1", 10, 32.14, Language.ENGLISH, Genre.YOUNG_ADULT, Age.R);
 
-            Book book32 = new Book(33L, "Five Feet Apart", 1481449362, " Rachael Lippincott", "Simon & Schuster Books",
+            Book book32 = new Book(33L, "Five Feet Apart", 1481449362, "Rachael Lippincott", "Simon & Schuster Books",
                     "Stella Grant likes to be in control—even though her totally out of control lungs have sent her in and out of the hospital most of her life.",
                     "Young_Adult2", 10, 20.09, Language.ENGLISH, Genre.YOUNG_ADULT, Age.PG_13);
 
@@ -233,6 +233,8 @@ public class AmazonBookStore {
             user1.addPurchased(book4);
             user1.addPurchased(book24);
             userRepository.save(user1);
+            System.err.println("**********************");
+
 
 
             User user2 = new User("Moe", "Zalat","moe@gmail.com","1234");
