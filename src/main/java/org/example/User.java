@@ -25,12 +25,14 @@ public class User {
     @ManyToMany
     private List<Book> inCart;
 
+    private boolean owner;
+
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-
+        this.owner = false;
         purchased = new ArrayList<>();
         inCart = new ArrayList<>();
     }
@@ -41,12 +43,13 @@ public class User {
         this.password = password;
         purchased = new ArrayList<Book>();
         inCart = new ArrayList<Book>();
-
+        this.owner = false;
     }
 
     public User() {
         purchased = new ArrayList<Book>();
         inCart = new ArrayList<Book>();
+        this.owner = false;
     }
 
 
@@ -105,6 +108,14 @@ public class User {
 
     public void setCurrent(boolean current) {
         this.current = current;
+    }
+
+    public boolean getRole() {
+        return owner;
+    }
+
+    public void setRole(boolean owner) {
+        this.owner = owner;
     }
 
 }

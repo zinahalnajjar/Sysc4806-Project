@@ -267,6 +267,10 @@ public class AmazonBookStore {
 
             userRepository.save(user4);
 
+            User user5 = new User("Yasir", "Sheikh","yasir@gmail.com","1234");
+            user5.setRole(true);
+            userRepository.save(user5);
+
             log.info("users found with findAll():");
             log.info("-------------------------------");
             for (User users : userRepository.findAll()) {

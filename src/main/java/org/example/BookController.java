@@ -170,4 +170,22 @@ public class BookController {
         Recommendation r = new Recommendation(users);
         return r;
     }
+
+    @GetMapping("/addbook")
+    public String displayAddBook() {
+        return "addbook";
+    }
+
+    @PostMapping("/addbook")
+    public String addBook() {
+        return "inventory";
+    }
+
+    @GetMapping("/inventory")
+    public String inventory(Model model) {
+        ArrayList<Book> books = (ArrayList<Book>) br.findAll();
+        model.addAttribute("displayedbooks", books);
+        return "inventory";
+    }
+
 }
