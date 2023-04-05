@@ -37,6 +37,7 @@
             <input type="text" class="form-control" placeholder="Type Something" required th:name="searchInput">
             <button type="submit"><img th:src="@{/img/search.png}"></button>
         </form>
+
     </div>
 
     <div class="left-filter">
@@ -97,7 +98,7 @@
 
 
     <div class="sort">
-        <form class="sort" th:action="@{/search/sortallbooks}" th:object="${sortOptions}" method="post">
+        <form class="sort" th:action="@{/sortallbooks}" th:object="${sortOptions}" method="post">
             <p>
                 <label>Sort By</label>
                 <select th:field = "*{options}">
