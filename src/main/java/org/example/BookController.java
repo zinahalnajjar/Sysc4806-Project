@@ -24,13 +24,50 @@ public class BookController {
         return "details";
     }
 
-    @PostMapping("/cart")
-    public String addToCart() {
+    @PostMapping("/cart/add/{id}")
+    public String addToCart(@PathVariable("id") long id, Model model) {
+        Recommendation r = getRec();
+        User c = r.getCurrentUser();
+        Book book = br.findById(id);
+        c.addInCart(book);
+        ur.save(c);
+
+        List<Book>  cart = c.getInCart();
+
+        model.addAttribute("displayedbooks", cart);
+
         return "cart";
     }
 
+    @GetMapping("/cart/remove/{id}")
+    public String removeFromCart(@PathVariable("id") long id, Model model) {
+        Recommendation r = getRec();
+        User c = r.getCurrentUser();
+        Book book = br.findById(id);
+        c.removeInCart(book);
+        ur.save(c);
+
+        List<Book> cart = c.getInCart();
+
+        model.addAttribute("displayedbooks", cart);
+
+        return "cart";
+    }
+
+    @GetMapping("/checkout")
+    public String checkOut() {
+        return "checkout";
+    }
+
     @GetMapping("/cart")
-    public String displayCart() {
+    public String displayCart(Model model) {
+        Recommendation r = getRec();
+        User c = r.getCurrentUser();
+
+        List<Book> cart = c.getInCart();
+
+        model.addAttribute("displayedbooks", cart);
+
         return "cart";
     }
 
@@ -70,17 +107,14 @@ public class BookController {
 
     @GetMapping("/account")
     public String displayAccount(Model model) {
-        ArrayList<User> users = (ArrayList<User>) ur.findAll();
-        Recommendation r = new Recommendation(users);
+        Recommendation r = getRec();
         model.addAttribute("user", r.getCurrentUser());
         return "account";
     }
 
     @GetMapping("/recommendation")
     public String displayRecommendation(Model model) {
-        ArrayList<User> users = (ArrayList<User>) ur.findAll();
-        Recommendation r = new Recommendation(users);
-
+        Recommendation r = getRec();
         r.findRecommendations();
 
         ArrayList<Book> books = r.getRecommendations();
@@ -129,5 +163,11 @@ public class BookController {
         model.addAttribute("displayedbooks", books);
 
         return "search";
+    }
+
+    private Recommendation getRec(){
+        ArrayList<User> users = (ArrayList<User>) ur.findAll();
+        Recommendation r = new Recommendation(users);
+        return r;
     }
 }

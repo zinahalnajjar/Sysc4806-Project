@@ -17,8 +17,11 @@ public class Recommendation {
         for(User user : users){
             if(user.isCurrent()){
                 this.currentUser= user;
+                System.out.println("Setting current user");
             }
         }
+
+        System.out.println(currentUser.getFirstName());
 
     }
 

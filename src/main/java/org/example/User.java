@@ -12,7 +12,6 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     public Long userId;
 
-
     public String email;
     public String password;
     private String firstName;
@@ -97,7 +96,7 @@ public class User {
     }
 
     public void addInCart(Book book) {
-        this.inCart.remove(book);
+        this.inCart.add(book);
     }
 
     public boolean isCurrent() {
