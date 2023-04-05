@@ -30,11 +30,13 @@
             <thead>
             <tr>
                 <th style ="border-right:1px;text-align:left">Title</th>
+                <th style ="border-right:1px;text-align:left">Price</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each = "book:${displayedbooks}" >
                 <td th:text = "${book.getTitle()}">${book.getTitle()}</td>
+                <td th:text = "${book.getPrice()}">${book.getPrice()}</td>
                 <td>
                     <a th:href="@{/cart/remove/{id}(id = ${book.id})}">
                         Remove
@@ -46,7 +48,7 @@
     <div class="subBut">
         <form th:action="@{/checkout}" method="get">
             <p>
-                <input class="button" type="submit" value="Add To Cart"/>
+                <input class="button" type="submit" value="Proceed to Checkout"/>
             </p>
         </form>
     </div>

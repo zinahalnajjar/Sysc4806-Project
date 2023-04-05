@@ -172,12 +172,21 @@ public class BookController {
     }
 
     @GetMapping("/addbook")
-    public String displayAddBook() {
+    public String displayAddBook(Model model) {
+        Book b = new Book();
+        model.addAttribute("book", b);
+
         return "addbook";
     }
 
     @PostMapping("/addbook")
-    public String addBook() {
+    public String addBook(Model model, @ModelAttribute("book") Book book) {
+        Book b = book;
+        br.save(b);
+
+        ArrayList<Book> books = (ArrayList<Book>) br.findAll();
+        model.addAttribute("displayedbooks", books);
+
         return "inventory";
     }
 
@@ -185,6 +194,17 @@ public class BookController {
     public String inventory(Model model) {
         ArrayList<Book> books = (ArrayList<Book>) br.findAll();
         model.addAttribute("displayedbooks", books);
+        return "inventory";
+    }
+
+    @GetMapping("/inventory/remove/{id}")
+    public String removeFromInventory(@PathVariable("id") long id, Model model) {
+
+        br.deleteById(id);
+
+        ArrayList<Book> books = (ArrayList<Book>) br.findAll();
+        model.addAttribute("displayedbooks", books);
+
         return "inventory";
     }
 

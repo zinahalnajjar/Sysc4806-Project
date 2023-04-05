@@ -41,8 +41,8 @@
                 <td th:text = "${book.getPrice()}">${book.getPrice()}</td>
                 <td th:text = "${book.getAuthor()}" >${book.getAuthor()}</td>
                 <td>
-                    <a th:href="@{/bookdetails/{id}(id = ${book.id})}">
-                        Details
+                    <a th:href="@{/inventory/remove/{id}(id = ${book.id})}">
+                        Remove
                     </a>
                 </td>
             </tbody>
