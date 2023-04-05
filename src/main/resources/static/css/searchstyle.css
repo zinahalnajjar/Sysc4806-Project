@@ -110,3 +110,13 @@ td{
     background: #f9f9d1;
     cursor: pointer;
 }
+
+h1{
+    font-size: 20px;
+    padding:10px;
+}
+
+h2{
+    font-size: 15px;
+    padding:10px;
+}

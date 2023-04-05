@@ -115,12 +115,12 @@
     <div class="tab" th:if="${displayedbooks.size() != 0}">
         <table style="width: 95%">
             <thead>
-                <tr>
-                    <th style="border-right:1px;text-align:left">Id</th>
-                    <th style ="border-right:1px;text-align:left">Title</th>
-                    <th style ="border-right:1px;text-align:left">Price</th>
-                    <th style ="border-right:1px;text-align:left">Author</th>
-                </tr>
+            <tr>
+                <th style="border-right:1px;text-align:left">Id</th>
+                <th style ="border-right:1px;text-align:left">Title</th>
+                <th style ="border-right:1px;text-align:left">Price</th>
+                <th style ="border-right:1px;text-align:left">Author</th>
+            </tr>
             </thead>
             <tbody>
             <tr th:each = "book:${displayedbooks}" >

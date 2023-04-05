@@ -1,9 +1,6 @@
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.example.enums.Age;
 import org.example.enums.Genre;
 import org.example.enums.Language;
@@ -11,8 +8,9 @@ import org.example.enums.Language;
 
 @Entity
 public class Book {
-    private String title;
+
     private String search;
+    private String title;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -41,7 +39,7 @@ public class Book {
         this.age = age;
         this.language = language;
         this.genre = genre;
-        setSearch("");
+        search = null;
     }
 
     public Book() {
@@ -58,7 +56,7 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
-        setSearch("");
+        search = null;
     }
 
     public int getISBN() {
@@ -75,17 +73,8 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
-        setSearch("");
+        search = null;
     }
-    public String getSearch() {
-        return search;
-    }
-
-    public void setSearch(String search) {
-        this.search = author.toLowerCase() + "|" + title.toLowerCase();
-    }
-
-
 
     public String getPublisher() {
         return publisher;

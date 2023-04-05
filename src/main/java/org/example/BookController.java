@@ -1,14 +1,10 @@
 package org.example;
 
-import org.example.enums.Age;
-import org.example.enums.Genre;
-import org.example.enums.Language;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 @Controller
@@ -74,64 +70,65 @@ public class BookController {
 
     @GetMapping("/account")
     public String displayAccount(Model model) {
-        User user = ur.findByEmail("sam.bauer@gmail.com");
-        model.addAttribute("user", user);
-
+        ArrayList<User> users = (ArrayList<User>) ur.findAll();
+        Recommendation r = new Recommendation(users);
+        model.addAttribute("user", r.getCurrentUser());
         return "account";
     }
 
     @GetMapping("/recommendation")
-    public String displayRecommendation() {
+    public String displayRecommendation(Model model) {
+        ArrayList<User> users = (ArrayList<User>) ur.findAll();
+        Recommendation r = new Recommendation(users);
+
+        r.findRecommendations();
+
+        ArrayList<Book> books = r.getRecommendations();
+        model.addAttribute("displayedbooks", books);
+
         return "recommendation";
     }
 
-    @PostMapping("/sortallbooks")
-    public String sortBooks(@ModelAttribute("sortOptions") Sort sort, @RequestParam(value = "options") String options, Model model, User user) {
-        Sort sorting = new Sort();
-        model.addAttribute("sortOptions", sorting);
+
+    @PostMapping("/search/sortallbooks")
+    public String sortBooks(@ModelAttribute("sortOptions") Sort sort, @RequestParam(value = "options") String options, Model model) {
+
+        Sort sort1 = new Sort();
+        model.addAttribute("sortOptions", sort1);
+
         if (options.equals("1")) {
-            model.addAttribute("displayedbooks", br.findByOrderByPriceDesc());
+            ArrayList<Book> books = (ArrayList<Book>) br.findByOrderByPriceDesc();
+            model.addAttribute("displayedbooks", books);
             return "search";
 
         } else if (options.equals("2")) {
-            model.addAttribute("displayedbooks", br.findByOrderByAuthorAsc());
+            ArrayList<Book> books = (ArrayList<Book>) br.findByOrderByAuthorAsc();
+            model.addAttribute("displayedbooks", books);
             return "search";
         }else if (options.equals("3")){
-            model.addAttribute("displayedbooks", br.findByOrderByPriceAsc());
+            ArrayList<Book> books = (ArrayList<Book>) br.findByOrderByPriceAsc();
+            model.addAttribute("displayedbooks", books);
             return "search";
 
         }else if (options.equals("4")){
-            //model.addAttribute("displayedbooks", br.findByOrderByTitleAsc());
-            System.err.println("users found with findAll():");
-            for (User users : ur.findAll()) {
-                System.err.println(users.toString());
-            }
-            // trying to comine search and sort by basing it on the stored search input of the current user ->not working
-            //model.addAttribute("displayedbooks", br.findBySearchAllIgnoreCaseContainingOrderByTitleAsc(this.ur.findByEmail("sam.bauer@gmail.com").getLastSearched()));
-            model.addAttribute("displayedbooks", br.findByOrderByTitleAsc());
-            System.err.println("===================="+ this.ur.findByEmail("sam.bauer@gmail.com").getFirstName());
+            ArrayList<Book> books = (ArrayList<Book>) br.findByOrderByTitleAsc();
+            model.addAttribute("displayedbooks", books);
             return "search";
         }
 
         return "search";
-
     }
 
     @PostMapping("/SearchBar")
-    public String searchBar(@ModelAttribute("searchWord") Book book, Model model, @RequestParam(value = "searchInput") String searchInput, User user) {
+    public String searchBar(@ModelAttribute("searchWord") Book book, Model model, @RequestParam(value = "searchInput") String searchInput) {
 
+
+        ArrayList<Book> books = (ArrayList<Book>) br.findBySearchAllIgnoreCaseContainingOrderByTitleAsc(searchInput);
 
         Sort sort = new Sort();
         model.addAttribute("sortOptions", sort);
-        //Book bookinfo = this.br.findByTitle(searchInput);
-        //model.addAttribute("displayedbooks",br.findByAuthor(searchInput));
-        this.ur.findByEmail("sam.bauer@gmail.com").setLastSearched(searchInput);// setting it to remember the search
-        System.err.println("///////////"+ this.ur.findByEmail("sam.bauer@gmail.com").getLastSearched());
-        model.addAttribute("displayedbooks",br.findBySearchAllIgnoreCaseContaining(searchInput));
+        model.addAttribute("displayedbooks", books);
+
         return "search";
     }
-
-
-
-
 }

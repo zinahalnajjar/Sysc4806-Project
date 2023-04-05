@@ -227,9 +227,47 @@ public class AmazonBookStore {
 
 
             User user1 = new User("Sam", "Bauer","sam.bauer@gmail.com","1234");
+            user1.addPurchased(book1);
+            user1.addPurchased(book2);
+            user1.addPurchased(book3);
+            user1.addPurchased(book4);
+            user1.addPurchased(book24);
             userRepository.save(user1);
             System.err.println("**********************");
 
+
+
+            User user2 = new User("Moe", "Zalat","moe@gmail.com","1234");
+            user2.addPurchased(book1);
+            user2.addPurchased(book2);
+            user2.addPurchased(book5);
+            user2.addPurchased(book6);
+            user2.addPurchased(book7);
+            user2.addPurchased(book8);
+            user2.addPurchased(book9);
+            user2.addPurchased(book32);
+            user2.addPurchased(book24);
+            user2.addPurchased(book16);
+            user2.addPurchased(book17);
+            userRepository.save(user2);
+
+            User user3 = new User("Tooba", "Sheikh","tooba@gmail.com","1234");
+            user3.addPurchased(book18);
+            user3.addPurchased(book19);
+            user3.addPurchased(book20);
+            user3.addPurchased(book21);
+            user3.addPurchased(book22);
+
+            userRepository.save(user3);
+
+            User user4 = new User("Zinah", "Al-Najjar","zinah@gmail.com","1234");
+            user4.addPurchased(book22);
+            user4.addPurchased(book21);
+            user4.addPurchased(book1);
+            user4.addPurchased(book2);
+            user4.addPurchased(book3);
+
+            userRepository.save(user4);
 
             log.info("users found with findAll():");
             log.info("-------------------------------");
