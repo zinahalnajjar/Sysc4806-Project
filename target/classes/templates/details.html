@@ -7,8 +7,6 @@
     <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/bookdetailstyle.css}">
-
-
 </head>
 
 <body>
@@ -44,7 +42,7 @@
                 <div class="buy-section">
                     <p>Price: $<span th:text="${book.price}"></span></p>
                     <div class="addtocart">
-                        <form th:action="@{/cart}" method="post">
+                        <form th:action="@{/cart/add/{id}(id = ${book.id})}" method="post">
                             <p>
                                 <input class="button" type="submit" value="Add To Cart"/>
                             </p>

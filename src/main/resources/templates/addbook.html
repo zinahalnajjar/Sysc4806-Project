@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <title>Amazon BookStore</title>
+
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/addbookstyle.css}">
+</head>
+
+<body>
+
+<header class= "main_header">
+    <h1>Amazon Book Store</h1>
+</header>
+
+<nav>
+    <div id= "nav-bar-top">
+        <a th:href= "@{/inventory}">Inventory</a>
+        <a th:href= "@{/addbook}">Add Book</a>
+        <a class="account" th:href= "@{/account}">Account</a>
+    </div>
+</nav>
+
+<div class="main-info">
+    <form class ="col-5" th:action="@{/addbook}" th:object="${book}" method="post">
+        <label>Title: </label>
+        <input type="text" class="form-control" th:field="*{title}">
+        <br>
+
+        <label>Author: </label>
+        <input type="text" class="form-control" th:field="*{author}">
+        <br>
+
+        <label>Price: </label>
+        <input type="text" class="form-control" th:field="*{price}">
+        <br>
+
+        <label>Description: </label>
+        <input type="text" class="form-control" th:field="*{description}">
+        <br>
+
+        <label>ISBN: </label>
+        <input type="text" class="form-control" th:field="*{ISBN}">
+        <br>
+
+        <label>Publisher: </label>
+        <input type="text" class="form-control" th:field="*{publisher}">
+        <br>
+
+
+        <label>Language: </label>
+        <select th:field="*{language}">
+            <option th:each="Language : ${T(org.example.enums.Language).values()}"
+                    th:value="${Language}" th:text="${Language}"></option>
+        </select>
+        <br>
+
+        <label>Genre: </label>
+        <select th:field="*{genre}">
+            <option th:each="Genre : ${T(org.example.enums.Genre).values()}"
+                    th:value="${Genre}" th:text="${Genre}"></option>
+        </select>
+        <br>
+
+        <label>Age: </label>
+        <select th:field="*{age}">
+            <option th:each="Age : ${T(org.example.enums.Age).values()}"
+                    th:value="${Age}" th:text="${Age}"></option>
+        </select>
+        <br>
+
+        <label>File Name: </label>
+        <input type="text" class="form-control" th:field="*{picture}">
+        <br>
+
+        <input type="file" name="image" accept="image/*" class="form-control-file">
+        <br>
+
+        <input class="button" type="submit" value="Submit Book"/>
+    </form>
+</div>
+
+
+</body>
+</html>

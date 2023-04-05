@@ -12,6 +12,7 @@ public class User {
     @GeneratedValue(strategy=GenerationType.AUTO)
     public Long userId;
 
+    private int cartTotal = 0;
 
     public String email;
     public String password;
@@ -26,12 +27,14 @@ public class User {
     @ManyToMany
     private List<Book> inCart;
 
+    private boolean owner;
+
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-
+        this.owner = false;
         purchased = new ArrayList<>();
         inCart = new ArrayList<>();
     }
@@ -42,12 +45,13 @@ public class User {
         this.password = password;
         purchased = new ArrayList<Book>();
         inCart = new ArrayList<Book>();
-
+        this.owner = false;
     }
 
     public User() {
         purchased = new ArrayList<Book>();
         inCart = new ArrayList<Book>();
+        this.owner = false;
     }
 
 
@@ -97,7 +101,7 @@ public class User {
     }
 
     public void addInCart(Book book) {
-        this.inCart.remove(book);
+        this.inCart.add(book);
     }
 
     public boolean isCurrent() {
@@ -106,6 +110,27 @@ public class User {
 
     public void setCurrent(boolean current) {
         this.current = current;
+    }
+
+    public boolean getRole() {
+        return owner;
+    }
+
+    public void setRole(boolean owner) {
+        this.owner = owner;
+    }
+
+    public void setCartTotal(int cartTotal) {
+        this.cartTotal = cartTotal;
+    }
+
+    public int getCartTotal() {
+
+        for(Book b : inCart){
+            cartTotal += b.getPrice();
+        }
+
+        return cartTotal;
     }
 
 }

@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>In Progress</title>
-
     <link  rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
     <link  rel="stylesheet" type="text/css" th:href="@{/css/navbarstyle.css}">
-
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/cartstyle.css}">
+    <title>Title</title>
 </head>
 <body>
 
@@ -23,7 +22,41 @@
     </div>
 </nav>
 
-<p>Cart Page</p>
+<h1 class="heady">Cart</h1>
+
+<div th:if="${displayedbooks.size() != 0}">
+    <div class="tab">
+        <table style="width: 95%">
+            <thead>
+            <tr>
+                <th style ="border-right:1px;text-align:left">Title</th>
+                <th style ="border-right:1px;text-align:left">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "book:${displayedbooks}" >
+                <td th:text = "${book.getTitle()}">${book.getTitle()}</td>
+                <td th:text = "${book.getPrice()}">${book.getPrice()}</td>
+                <td>
+                    <a th:href="@{/cart/remove/{id}(id = ${book.id})}">
+                        Remove
+                    </a>
+                </td>
+            </tbody>
+        </table>
+    </div>
+    <div class="subBut">
+        <form th:action="@{/checkout}" method="get">
+            <p>
+                <input class="button" type="submit" value="Proceed to Checkout"/>
+            </p>
+        </form>
+    </div>
+</div>
+
+<div class="tab" th:if="${displayedbooks.size() == 0}">
+    <h2>Nothing In Cart Yet</h2>
+</div>
 
 </body>
 </html>

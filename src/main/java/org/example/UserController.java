@@ -44,6 +44,13 @@ public class UserController {
 
             ArrayList<User> users = (ArrayList<User>) userRepository.findAll();
             Recommendation r = new Recommendation(users);
+
+            if(r.getCurrentUser().getRole()){
+                ArrayList<Book> books = (ArrayList<Book>) bookRepository.findAll();
+                model.addAttribute("displayedbooks", books);
+                return "inventory";
+            }
+
             r.findRecommendations();
             ArrayList<Book> rec = r.getRecommendations();
 

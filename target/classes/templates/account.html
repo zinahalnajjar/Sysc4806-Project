@@ -17,14 +17,21 @@
 
 <nav>
     <div id= "nav-bar-top">
-        <a th:href= "@{/recommendation}">Home</a>
-        <a th:href= "@{/search}">Search</a>
-        <a th:href= "@{/cart}">Cart</a>
-        <a class="account" th:href= "@{/account}">Account</a>
+        <div th:if="${!user.getRole()}">
+            <a th:href= "@{/recommendation}">Home</a>
+            <a th:href= "@{/search}">Search</a>
+            <a th:href= "@{/cart}">Cart</a>
+            <a class="account" th:href= "@{/account}">Account</a>
+        </div>
+        <div th:if="${user.getRole()}">
+            <a th:href= "@{/inventory}">Inventory</a>
+            <a th:href= "@{/addbook}">Add Book</a>
+            <a class="account" th:href= "@{/account}">Account</a>
+        </div>
     </div>
 </nav>
 
-<h1>Account Summary</h1>
+<h1 class="heady">Account Summary</h1>
 
 <p>First Name: <span th:text="${user.firstName}"></span></p>
 <p>Last Name: <span th:text="${user.lastName}"></span></p>

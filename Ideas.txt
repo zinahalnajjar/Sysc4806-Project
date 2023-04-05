@@ -65,7 +65,7 @@ Finished Features:
 
 Left Features:
  - Order History Page - Zinah
- - Cart - Tooba
+ - Cart - Tooba - done
  - Proceed to checkout - Zinah
  - Add new book - Tooba
  - View list of book - be able to add and remove inventory - Tooba

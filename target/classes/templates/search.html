@@ -91,7 +91,7 @@
                 <input type="checkbox" id="price4" th:name="checkInp" value="Over 100">
                 <label for="price4">Over 100</label><br>
             </details>
-            <button type= "submit">Submit</button>
+            <button class="filt" type= "submit">Submit</button>
         </form>
     </div>
 
@@ -138,7 +138,7 @@
     </div>
 
     <div class="tab" th:if="${displayedbooks.size() == 0}">
-        <h1>No Results Found</h1>
+        <h1 class="heady">No Results Found</h1>
     </div>
 </div>
 
