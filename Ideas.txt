@@ -55,6 +55,23 @@ Search Page
  - Table (Zinah)
 
 
+Finished Features:
+ - Search Page
+ - Recommendation Page
+ - Filters
+ - Sort
+ - Account Summary
+ - Login/Signup
+
+Left Features:
+ - Order History Page - Zinah
+ - Cart - Tooba
+ - Proceed to checkout - Zinah
+ - Add new book - Tooba
+ - View list of book - be able to add and remove inventory - Tooba
+ - JUnit Test
+
+
 
 
 

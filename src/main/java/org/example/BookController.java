@@ -122,7 +122,7 @@ public class BookController {
     @PostMapping("/SearchBar")
     public String searchBar(@ModelAttribute("searchWord") Book book, Model model, @RequestParam(value = "searchInput") String searchInput) {
 
-        ArrayList<Book> books = (ArrayList<Book>) br.findByAuthor(searchInput);
+        ArrayList<Book> books = (ArrayList<Book>) br.findBySearchAllIgnoreCaseContainingOrderByTitleAsc(searchInput);
 
         Sort sort = new Sort();
         model.addAttribute("sortOptions", sort);
